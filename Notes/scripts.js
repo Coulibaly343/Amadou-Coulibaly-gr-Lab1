@@ -5,7 +5,6 @@ class Notes {
     let title = title_note.textContent;
     let text = note_text.textContent;
     let isPinned = false;
-    //    console.log(storage.length)
     if (storage) {
       if (storage.length > 2 && loadStorage) {
         title = noteValues.title;
@@ -65,7 +64,6 @@ class Notes {
       } else {
         colorClass = "bg-link";
       }
-      // console.log(colorClass)
 
       note.classList.add(colorClass);
       note.style.width = "300px !important"; //card style
@@ -104,7 +102,6 @@ class Notes {
       divs[4].classList.add("dropdown-menu-left");
 
       //appending
-      // console.log(noteValues.isPinned)
       if (noteValues.isPinned) {
         menu.appendChild(note);
       } else {
@@ -147,7 +144,6 @@ class Notes {
         });
       });
 
-      //array pushes
       // 1.
       let color = note.classList[2].split("-")[1];
       let notess = {
@@ -160,7 +156,6 @@ class Notes {
       };
       
       notes_array.push(notess);
-      //    console.log(notes_array)
       
       //2.
       let comps = {
@@ -174,7 +169,6 @@ class Notes {
       };
       note_comps.push(comps);
 
-      //  console.log(loadStorage)
       if (storage) {
         if (storage.length > 2 && loadStorage) {
           changeInnerColor(note);
@@ -226,4 +220,30 @@ function deleteNote(e) {
         }
     )
     toLocalStorage();
+}
+
+function changeColor(e) {
+    let wow = e.target;
+    let color = wow.classList[1].split("-")[1];
+    console.log(color)
+    for (let i = 0; i < 5; i++) {
+        wow = wow.parentNode;
+    }
+    notes_array.forEach( //update color on note array
+        function (note) {
+            if (wow == note.object) {
+                note.color = color; //push into notes array
+                toLocalStorage();
+            }
+        }
+    )
+
+    let classes = wow.classList;
+    let toRemove = removeColors(classes, str_bg);
+    wow.classList.remove(toRemove);
+    coloring = false;
+    color = "bg-" + color;
+    wow.classList.add(color);
+    changeInnerColor(wow);
+    coloring = true;
 }
