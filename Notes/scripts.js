@@ -339,7 +339,6 @@ function start() {
   note_text.addEventListener("click", makeNotes);
   menu_bars.addEventListener("click", hideMenu);
   document.addEventListener("click", hideNote);
-  let przyciski = document.querySelectorAll(".btn-circle");
   if (localStorage.getItem("notePocket")) {
     storage = localStorage.getItem("notePocket");
     fromLocalStorage();
