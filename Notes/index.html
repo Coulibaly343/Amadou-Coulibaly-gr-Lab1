@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./notesCSS.css" />
+    <link rel="stylesheet" href="./css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+      integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+      crossorigin="anonymous"
+    />
+    <title>Notes</title>
+  </head>
+
+  <body>
+    <div class="container-full">
+      <div id="header" class="row">
+        <div class="col-1">
+          <i class="fa fa-bars rounded-circle" aria-hidden="true"></i>
+        </div>
+        <div class="col-2">
+          <span></span>
+        </div>
+        <div class="col-7">
+          <input
+            id="search"
+            class="rounded"
+            type="text"
+            name="search"
+            placeholder="Search"
+            spellcheck="false"
+          />
+        </div>
+        <div class="col-1"></div>
+        <div class="col-1"></div>
+      </div>
+      <div class="row gray">
+        <div id="menu" class="col-3">
+          <ul>
+            <li class="row"></li>
+          </ul>
+        </div>
+        <div id="main-window" class="col-9">
+          <div id="wwht">
+            <div id="sth">
+              <div
+                id="title"
+                contenteditable="true"
+                aria-multiline="true"
+                role="textbox"
+                tabindex="0"
+                spellcheck="false"
+                data-text="Title"
+              ></div>
+              <div
+                id="note"
+                contenteditable="true"
+                aria-multiline="true"
+                role="textbox"
+                tabindex="0"
+                spellcheck="false"
+                data-text="Create note..."
+              ></div>
+              <div id="notes-menu" class="row">
+                <ul id="ul">
+                  <li class="col-1"></li>
+                  <li class="col-1"></li>
+                  <li class="col-7"></li>
+                  <li id="done" class="col-2 rounded">Done</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-columns"></div>
+        </div>
+      </div>
+    </div>
+   <!-- skrypty -->
+  </body>
+</html>
