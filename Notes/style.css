@@ -1,0 +1,132 @@
+body,html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: rgba(232,232,232,1) !important;
+}
+.container-full{
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+}
+*{
+    overflow: visible !important;
+}
+#header{
+    width: 100%;
+    height: 64px;
+    background-color: rgb(82, 180, 62);
+   padding: 8px;
+   align-items: center;
+   justify-content: space-between;
+   margin: 0px;
+}
+.col-1>.fa-bars{
+    margin-top: 0px;
+    margin-left: 10px;
+    width: 48px;
+    height: 48px;
+    line-height: 48px !important;
+    text-align: center;
+    font-size: 24px !important;
+    color:white ;
+}
+.fa-bars:hover{
+    color: black !important;
+    background: rgba(58, 74, 167, 1) !important;
+}
+#name{
+    height: 48px;
+    width: 96px;
+}
+.menu_bar{
+    display: flex;
+    height: calc(100vh - 100%) !important;
+}
+#search{
+    background: rgb(133, 192, 93);
+    height: 48px;
+    border: none;
+    width: 100%;
+    padding-left: 10px;
+}
+::placeholder{
+    color:white
+}
+#search:focus{
+    background: white;
+}
+#search:focus::placeholder{
+    color: gray;
+}
+.container-full>.gray{
+    margin: 0px !important;
+    width: 100%;
+    flex: 1;
+}
+#nth{
+    width: 100%;
+    height: 30px;
+    background: rgba(232,232,232,1);
+    margin: 0px;
+}
+#main-window{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+}
+#main-window>row{
+    text-align: center;
+}
+#wwht{
+    margin-bottom: 50px;
+}
+#sth{
+    background: white;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+#note{
+    background: white;
+    font-size: 14px;
+    line-height: 19px;
+    min-height: 46px;
+    padding: 12px 15px 15px 15px;
+    text-align: start;
+    color: rgba(116,116,116,1)
+   
+}
+#title{
+    min-height: 43px;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: start;
+    color: rgba(116,116,116,1);
+    display: none;
+}
+#notes-menu{
+    height: 37px;
+    display: none;
+    font-weight: bold;
+    text-align: end;
+}
+ #notes-menu>ul{
+   list-style: none;
+   text-align: center;
+   height: 100%;
+   padding: 0px;
+   margin: 0px;
+}
+#notes-menu>ul>li{
+    display: inline-block;
+}
+#notes-menu>ul>.col-2{
+cursor: pointer;
+}
+
