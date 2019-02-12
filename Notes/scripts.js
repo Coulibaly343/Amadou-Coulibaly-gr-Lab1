@@ -247,3 +247,38 @@ function changeColor(e) {
     changeInnerColor(wow);
     coloring = true;
 }
+
+function changeInnerColor(wow) {
+    note_comps.forEach( //update color on note array
+        function (el) {
+            if (wow == el.object) {
+                let name = el.object.classList[2];
+                switch (name) {
+                    case "bg-light":
+                    case "bg-link":
+                        el.delete.removeAttribute("style")
+                        el.paint.removeAttribute("style")
+                        el.pin.removeAttribute("style")
+                        el.small.removeAttribute("style")
+                        el.text.removeAttribute("style")
+                        el.title.removeAttribute("style")
+                        break;
+                    case "bg-secondary":
+                    case "bg-dark":
+                        el.text.setAttribute("style", "color: white !important")
+                        el.title.setAttribute("style", "color: white !important")
+                    case "bg-primary":
+                    case "bg-success":
+                    case "bg-danger":
+                    case "bg-warning":
+                    case "bg-info":
+                        el.delete.setAttribute("style", "color: white !important")
+                        el.paint.setAttribute("style", "color: white !important")
+                        el.pin.setAttribute("style", "color: white !important")
+                        el.small.setAttribute("style", "color: white !important")
+                        break;
+                }
+            }
+        }
+    )
+}
