@@ -282,3 +282,14 @@ function changeInnerColor(wow) {
         }
     )
 }
+
+function removeColors(array) {
+    let mori = [];
+    for (let i = 0; i < array.length; i++) {
+        mori.push(array[i]);
+        let cos = mori[i].split("-")[0];
+        if (cos == "bg") {
+            return array[i];
+        }
+    }
+}
