@@ -102,7 +102,8 @@ class Notes {
         k++;
       });
       divs[4].classList.add("dropdown-menu-left");
-      //appendowanie
+
+      //appending
       // console.log(noteValues.isPinned)
       if (noteValues.isPinned) {
         menu.appendChild(note);
@@ -179,7 +180,7 @@ class Notes {
           changeInnerColor(note);
         }
       }
-      
+
       pin.addEventListener("click", PinNote, false);
       pin.params = {
         note: note,
@@ -190,4 +191,21 @@ class Notes {
       loadStorage = false;
     }
   }
+}
+
+function PinNote(el) {
+    let note = el.target.params.note;
+    let notess = el.target.params.notess;
+    let parent = note.parentNode;
+    let name = parent.classList[0];
+
+    if (!notess.isPinned && name == "card-columns") {
+        menu.appendChild(note);
+        notess.isPinned = true;
+    }
+    else if (notess.isPinned && name == "col-3") {
+        note_place.appendChild(note);
+        notess.isPinned = false;
+    }
+    toLocalStorage();
 }
