@@ -130,3 +130,104 @@ body,html{
 cursor: pointer;
 }
 
+.notes{
+    margin: 0px !important;
+    width: 100%;
+    display: inline-block !important;
+}
+
+#menu>ul{
+    padding: 0px;
+}
+#menu>ul>li{
+    width: 100%;
+    margin: 0px;
+}
+#done:hover{
+   background:rgba(210,210,210,1);
+}
+.note{
+    width: 240px;
+    background: white;
+   margin: 16px;
+   display: inline-block;
+}
+.card{
+    width: 300px !important;
+}
+.card-body{
+    padding: 15px 15px 3px 15px !important;
+}
+.card-footer{
+    text-align: end;
+    padding: 0px 20px !important;
+}
+.fa{
+    padding:0px 10px;
+    color: rgba(116,116,116,1) !important;
+}
+.fa:hover{
+color: black !important;
+}
+.card-footer>.dropup{
+    display: inline;
+}
+.dropup>.fa{
+    text-decoration: none;
+    padding: 10px 10px;
+}
+.dropdown-toggle:hover{
+    color: black !important;
+}
+.dropdown-toggle::after{
+    display: none !important;
+}
+.dropdown-menu{
+    background: rgba(221,221,222,1) !important;
+    left: -100px !important;
+}
+.text-muted{
+    margin: 0px;
+    font-size: 10px !important;
+}
+.card-footer>.fa.fa-times{
+    margin-left: 10px;
+    padding: 10px 0px 10px 10px;
+    cursor: pointer;
+}
+.card-footer>.fa.fa-times:hover{
+    color: brown !important;
+}
+
+.fa-thumb-tack{
+    margin-left: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.col{
+   text-align: center;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    margin: 4px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+#tags{
+    margin-bottom: 0px;
+}
+.btn-link{
+    background: white !important;
+}
+.btn-light{
+    background: rgba(247,247,247,1) !important;
+}
+[contentEditable=true]:empty:before{
+    content:attr(data-text)
+}
+[contentEditable=true]:focus{
+    outline:none;
+}
