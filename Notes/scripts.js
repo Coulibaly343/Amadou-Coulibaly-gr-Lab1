@@ -209,3 +209,21 @@ function PinNote(el) {
     }
     toLocalStorage();
 }
+
+function deleteNote(e) {
+    let i = 0;
+    let wow = e.target;
+    for (let i = 0; i < 2; i++) {
+        wow = wow.parentNode;
+    }
+    notes_array.forEach(
+        function (note) {
+            if (wow == note.object) {
+                notes_array.splice(i, 1);
+                wow.remove();
+            }
+            i++;
+        }
+    )
+    toLocalStorage();
+}
