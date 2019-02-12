@@ -293,3 +293,64 @@ function removeColors(array) {
         }
     }
 }
+
+document.addEventListener("DOMContentLoaded", start);
+
+let colors_class = ["btn-light", "btn-dark", "btn-link", "btn-primary", "btn-secondary", "bg-success", "btn-danger", "btn-warning", "btn-info"];
+let buttons_class = ["col", "col", "col", "dropup", "dropdown-menu"];
+let notes_array = [];
+let note_comps = [];
+let storage;
+let note_place;
+let note_div;
+let note_text;
+let note_menu;
+let menu_bars;
+let menu;
+let main_window;
+let title_note;
+let done;
+let str_bg = "bg-";
+let show = false;
+let coloring = false;
+let loadStorage = true;
+
+function start() {
+    let notes = new Notes();
+    note_place = document.querySelector(".card-columns")
+    note_div = document.querySelector("#sth");
+    note_text = document.querySelector("#note");
+    title_note = document.querySelector("#title")
+    note_menu = document.querySelector("#notes-menu");
+    menu_bars = document.querySelector(".fa-bars");
+    menu = document.getElementById("menu");
+    main_window = document.getElementById("main-window");
+    done = document.getElementById("done");
+    done.addEventListener("click", notes.createNote);
+    note_text.addEventListener("click", makeNotes)
+    menu_bars.addEventListener("click", hideMenu);
+    document.addEventListener("click", hideNote);
+    let przyciski = document.querySelectorAll('.btn-circle');
+    if (localStorage.getItem("notePocket")) {
+        storage = localStorage.getItem("notePocket");
+        fromLocalStorage();
+    }
+}
+
+function toLocalStorage() {
+    localStorage.setItem('notePocket', JSON.stringify(notes_array));
+}
+
+function fromLocalStorage() {
+    if (storage.length > 2) {
+        let not = new Notes();
+        let notes = JSON.parse(storage);
+        console.log(notes)
+        notes.forEach(
+            function (note) {
+                loadStorage = true;
+                not.createNote(note);
+            }
+        )
+    }
+}
