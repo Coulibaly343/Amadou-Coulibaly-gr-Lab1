@@ -56,7 +56,7 @@ class Notes {
       note.classList.add("card"); // note = .card
       note.classList.add("text-left");
       let colorClass;
-      
+
       if (storage) {
         if (storage.length > 2 && loadStorage) {
           colorClass = "bg-" + noteValues.color;
@@ -154,9 +154,9 @@ class Notes {
         color: color,
         isPinned: isPinned
       };
-      
+
       notes_array.push(notess);
-      
+
       //2.
       let comps = {
         object: note,
@@ -188,115 +188,124 @@ class Notes {
 }
 
 function PinNote(el) {
-    let note = el.target.params.note;
-    let notess = el.target.params.notess;
-    let parent = note.parentNode;
-    let name = parent.classList[0];
+  let note = el.target.params.note;
+  let notess = el.target.params.notess;
+  let parent = note.parentNode;
+  let name = parent.classList[0];
 
-    if (!notess.isPinned && name == "card-columns") {
-        menu.appendChild(note);
-        notess.isPinned = true;
-    }
-    else if (notess.isPinned && name == "col-3") {
-        note_place.appendChild(note);
-        notess.isPinned = false;
-    }
-    toLocalStorage();
+  if (!notess.isPinned && name == "card-columns") {
+    menu.appendChild(note);
+    notess.isPinned = true;
+  } else if (notess.isPinned && name == "col-3") {
+    note_place.appendChild(note);
+    notess.isPinned = false;
+  }
+  toLocalStorage();
 }
 
 function deleteNote(e) {
-    let i = 0;
-    let wow = e.target;
-    for (let i = 0; i < 2; i++) {
-        wow = wow.parentNode;
+  let i = 0;
+  let wow = e.target;
+  for (let i = 0; i < 2; i++) {
+    wow = wow.parentNode;
+  }
+  notes_array.forEach(function(note) {
+    if (wow == note.object) {
+      notes_array.splice(i, 1);
+      wow.remove();
     }
-    notes_array.forEach(
-        function (note) {
-            if (wow == note.object) {
-                notes_array.splice(i, 1);
-                wow.remove();
-            }
-            i++;
-        }
-    )
-    toLocalStorage();
+    i++;
+  });
+  toLocalStorage();
 }
 
 function changeColor(e) {
-    let wow = e.target;
-    let color = wow.classList[1].split("-")[1];
-    console.log(color)
-    for (let i = 0; i < 5; i++) {
-        wow = wow.parentNode;
+  let wow = e.target;
+  let color = wow.classList[1].split("-")[1];
+  console.log(color);
+  for (let i = 0; i < 5; i++) {
+    wow = wow.parentNode;
+  }
+  notes_array.forEach(
+    //update color on note array
+    function(note) {
+      if (wow == note.object) {
+        note.color = color; //push into notes array
+        toLocalStorage();
+      }
     }
-    notes_array.forEach( //update color on note array
-        function (note) {
-            if (wow == note.object) {
-                note.color = color; //push into notes array
-                toLocalStorage();
-            }
-        }
-    )
+  );
 
-    let classes = wow.classList;
-    let toRemove = removeColors(classes, str_bg);
-    wow.classList.remove(toRemove);
-    coloring = false;
-    color = "bg-" + color;
-    wow.classList.add(color);
-    changeInnerColor(wow);
-    coloring = true;
+  let classes = wow.classList;
+  let toRemove = removeColors(classes, str_bg);
+  wow.classList.remove(toRemove);
+  coloring = false;
+  color = "bg-" + color;
+  wow.classList.add(color);
+  changeInnerColor(wow);
+  coloring = true;
 }
 
 function changeInnerColor(wow) {
-    note_comps.forEach( //update color on note array
-        function (el) {
-            if (wow == el.object) {
-                let name = el.object.classList[2];
-                switch (name) {
-                    case "bg-light":
-                    case "bg-link":
-                        el.delete.removeAttribute("style")
-                        el.paint.removeAttribute("style")
-                        el.pin.removeAttribute("style")
-                        el.small.removeAttribute("style")
-                        el.text.removeAttribute("style")
-                        el.title.removeAttribute("style")
-                        break;
-                    case "bg-secondary":
-                    case "bg-dark":
-                        el.text.setAttribute("style", "color: white !important")
-                        el.title.setAttribute("style", "color: white !important")
-                    case "bg-primary":
-                    case "bg-success":
-                    case "bg-danger":
-                    case "bg-warning":
-                    case "bg-info":
-                        el.delete.setAttribute("style", "color: white !important")
-                        el.paint.setAttribute("style", "color: white !important")
-                        el.pin.setAttribute("style", "color: white !important")
-                        el.small.setAttribute("style", "color: white !important")
-                        break;
-                }
-            }
+  note_comps.forEach(
+    //update color on note array
+    function(el) {
+      if (wow == el.object) {
+        let name = el.object.classList[2];
+        switch (name) {
+          case "bg-light":
+          case "bg-link":
+            el.delete.removeAttribute("style");
+            el.paint.removeAttribute("style");
+            el.pin.removeAttribute("style");
+            el.small.removeAttribute("style");
+            el.text.removeAttribute("style");
+            el.title.removeAttribute("style");
+            break;
+          case "bg-secondary":
+          case "bg-dark":
+            el.text.setAttribute("style", "color: white !important");
+            el.title.setAttribute("style", "color: white !important");
+          case "bg-primary":
+          case "bg-success":
+          case "bg-danger":
+          case "bg-warning":
+          case "bg-info":
+            el.delete.setAttribute("style", "color: white !important");
+            el.paint.setAttribute("style", "color: white !important");
+            el.pin.setAttribute("style", "color: white !important");
+            el.small.setAttribute("style", "color: white !important");
+            break;
         }
-    )
+      }
+    }
+  );
 }
 
 function removeColors(array) {
-    let mori = [];
-    for (let i = 0; i < array.length; i++) {
-        mori.push(array[i]);
-        let cos = mori[i].split("-")[0];
-        if (cos == "bg") {
-            return array[i];
-        }
+  let mori = [];
+  for (let i = 0; i < array.length; i++) {
+    mori.push(array[i]);
+    let cos = mori[i].split("-")[0];
+    if (cos == "bg") {
+      return array[i];
     }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", start);
 
-let colors_class = ["btn-light", "btn-dark", "btn-link", "btn-primary", "btn-secondary", "bg-success", "btn-danger", "btn-warning", "btn-info"];
+let colors_class = [
+  "btn-light",
+  "btn-dark",
+  "btn-link",
+  "btn-primary",
+  "btn-secondary",
+  "bg-success",
+  "btn-danger",
+  "btn-warning",
+  "btn-info"
+];
 let buttons_class = ["col", "col", "col", "dropup", "dropdown-menu"];
 let notes_array = [];
 let note_comps = [];
@@ -316,41 +325,77 @@ let coloring = false;
 let loadStorage = true;
 
 function start() {
-    let notes = new Notes();
-    note_place = document.querySelector(".card-columns")
-    note_div = document.querySelector("#sth");
-    note_text = document.querySelector("#note");
-    title_note = document.querySelector("#title")
-    note_menu = document.querySelector("#notes-menu");
-    menu_bars = document.querySelector(".fa-bars");
-    menu = document.getElementById("menu");
-    main_window = document.getElementById("main-window");
-    done = document.getElementById("done");
-    done.addEventListener("click", notes.createNote);
-    note_text.addEventListener("click", makeNotes)
-    menu_bars.addEventListener("click", hideMenu);
-    document.addEventListener("click", hideNote);
-    let przyciski = document.querySelectorAll('.btn-circle');
-    if (localStorage.getItem("notePocket")) {
-        storage = localStorage.getItem("notePocket");
-        fromLocalStorage();
-    }
+  let notes = new Notes();
+  note_place = document.querySelector(".card-columns");
+  note_div = document.querySelector("#sth");
+  note_text = document.querySelector("#note");
+  title_note = document.querySelector("#title");
+  note_menu = document.querySelector("#notes-menu");
+  menu_bars = document.querySelector(".fa-bars");
+  menu = document.getElementById("menu");
+  main_window = document.getElementById("main-window");
+  done = document.getElementById("done");
+  done.addEventListener("click", notes.createNote);
+  note_text.addEventListener("click", makeNotes);
+  menu_bars.addEventListener("click", hideMenu);
+  document.addEventListener("click", hideNote);
+  let przyciski = document.querySelectorAll(".btn-circle");
+  if (localStorage.getItem("notePocket")) {
+    storage = localStorage.getItem("notePocket");
+    fromLocalStorage();
+  }
 }
 
 function toLocalStorage() {
-    localStorage.setItem('notePocket', JSON.stringify(notes_array));
+  localStorage.setItem("notePocket", JSON.stringify(notes_array));
 }
 
 function fromLocalStorage() {
-    if (storage.length > 2) {
-        let not = new Notes();
-        let notes = JSON.parse(storage);
-        console.log(notes)
-        notes.forEach(
-            function (note) {
-                loadStorage = true;
-                not.createNote(note);
-            }
-        )
-    }
+  if (storage.length > 2) {
+    let not = new Notes();
+    let notes = JSON.parse(storage);
+    console.log(notes);
+    notes.forEach(function(note) {
+      loadStorage = true;
+      not.createNote(note);
+    });
+  }
+}
+
+function hideMenu() {
+  if (show == false) {
+    menu.style.display = "none";
+    main_window.style.margin = "auto";
+    menu_bars.style.background = "rgba(58, 74, 167, 1)";
+    menu_bars.style.color = "black";
+    show = true;
+  } else {
+    menu.removeAttribute("style");
+    main_window.removeAttribute("style");
+    menu_bars.removeAttribute("style");
+    show = false;
+  }
+}
+
+function makeNotes() {
+  title_note.style.display = "block";
+  note_menu.style.display = "block";
+}
+
+function hideNote(e) {
+  if (
+    e.target == note_div ||
+    e.target == note_text ||
+    e.target == title_note ||
+    e.target == document.getElementById("ul")
+  ) {
+  } else if (
+    e.target == main_window ||
+    document.getElementById("wwht") ||
+    e.target == document.getElementById("col-1") ||
+    e.target == document.querySelector(".row")
+  ) {
+    title_note.removeAttribute("style");
+    note_menu.removeAttribute("style");
+  }
 }
