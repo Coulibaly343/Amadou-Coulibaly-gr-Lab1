@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Simple photo editor</title>
+</head>
+<body>
+    <div class="uploader">
+ 
+        <input type="file" id="loader" accept=".jpeg, .jpg, .png" />
+ 
+        <canvas id="uploadedImg" src="#" width="600px" height="400px">
+        </canvas>
+ 
+        <button type="submit" id="imageDrawing">Enable drawing</button>
+        <form id="colorPicker">
+        <input type="radio"  name="colors" id="blackColor" value="black"/>Black
+        <input type="radio" name="colors" id="redColor" value="red"/>Red
+        <input type="radio" name="colors" id="greenColor" value="green" />Green
+        <input type="radio" checked name="colors" id="transparent" value="transparent" />Disabled
+        </form><br>
+        Brightness<input id="brightnessRange" type="range" min="-100" max="100" value="0" >
+        Contrast<input id="contrastRange" type="range" min="-100" max="200" value="0" >
+        Saturation<input id="saturationRange" type="range" min="-100" max="200" value="0" >
+       
+        <button type="submit" id="invertbtn">Invert</button>
+ 
+    </div>
+ 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
