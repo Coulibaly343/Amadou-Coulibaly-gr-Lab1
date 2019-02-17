@@ -1,0 +1,9 @@
+body {
+    margin:0;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 18px;
+    overflow: hidden;
+    cursor: default;;
+    background: rgb(255, 255, 255);
+  }
