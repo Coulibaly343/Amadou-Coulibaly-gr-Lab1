@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./mapsCSS.css">
+    <title>Catch me if u can</title>
+</head>
+
+<body onbeforeunload="return closeConnection()">
+    <div id="map"></div>
+    <div id="change-url">
+            URL:
+            <input id="URL" type="text">
+            <br>
+            <button id="send">Change avatar</button>
+    </div>
+    <script src="./script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDImFH_uArJ7XH-kr_8JUKSclBRKaRKrSc&callback=initMap"></script>
+</body>
+
+</html>
