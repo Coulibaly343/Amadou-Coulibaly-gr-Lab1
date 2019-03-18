@@ -1,0 +1,139 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 90%;
+}
+
+svg {
+    height: 90%;
+    width: 100%;
+    display: block;
+}
+
+#controls {
+    width: 55%;
+    display: inline-block;
+}
+
+.group {
+    width: 90px;
+    display: inline-block;
+}
+
+rec {
+    position: relative;
+}
+
+button {
+    /* width: 60px; */
+    font-size: 10px !important;
+}
+label{
+    font-size: 10px !important;
+}
+
+#light-btn {
+    transform: translate(100%, -915%)
+}
+
+#heh {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-light {
+    transform: translate(0px, -300px)
+}
+.cleared,
+.track,
+.rec{
+    width: 70px;
+}
+#drum_shadow {
+    transform: translate(55px, 30px)
+}
+
+#foot_tom,
+#tom_1All,
+#tom_2All,
+#bass_drum,
+#snare_drum,
+#crash_cymbal,
+#hi_hat_cymbal {
+    cursor: pointer;
+}
+.keys{
+    fill: rgb(172, 158, 158);
+}
+#tom_1All {
+    transform: translate(343.90609px, 168.626px)
+}
+
+#tom_2All {
+    transform: translate(302.57847px, 173.25345px)
+}
+
+#key106 {
+    transform: translate(350px, -200px)
+}
+
+#key104 {
+    transform: translate(90px, 40px)
+}
+
+#key98 {
+    transform: translate(-149px, 40px)
+}
+
+#key103 {
+    transform: translate(-400px, 40px)
+}
+
+#key102 {
+    transform: translate(-700px, -200px)
+}
+
+#key116 {
+    transform: translate(-300px, -500px)
+}
+
+#key121 {
+    transform: translate(-20px, -500px)
+}
+text{
+     transform: translate(725px,758px); 
+    font-size: 62px;
+    font-weight: bold;
+    fill: white;
+}
+.checkbox-inline{
+    margin-right: 40px;
+    transform: scale(1.3) translateX(15px);
+}
+.container-full{
+   margin: 10px;
+}
+#nom{
+    align-items: center;
+    justify-content: center;
+}
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.container-full>.row>.col{
+    margin-top: 20px;
+}
+.big-btns{
+    transform: scale(2) translate(0px,20px) !important;
+}
+.btn-group{
+    transform: scale(1.3);
+}
+.btn-danger{
+    background-color: #d8362a !important;
+}
+.btn-warning{
+    background-color: #ffd15c !important;
+}

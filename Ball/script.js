@@ -75,7 +75,7 @@ function initPlane() {
     planeX.material.color.set(0xff8888);
     let wall_geo = new THREE.BoxGeometry(17, 0.25, 3.25);
     let wall_geo2 = new THREE.BoxGeometry(0.25, 17, 3.25);
-    let thin_geo = new THREE.BoxGeometry(4.5, 0.25, 3.25)///////////////
+    let thin_geo = new THREE.BoxGeometry(4.5, 0.25, 3.25)
     let thin_geo2 = new THREE.BoxGeometry(0.25, 10, 3.25);
     let wallUp = new THREE.Mesh(wall_geo, material.clone());
     let wallDown = new THREE.Mesh(wall_geo, material.clone());
@@ -96,7 +96,7 @@ function initPlane() {
     wallLeft.position.x = -7.5;
     wallRight.position.z = 0.25;
     wallRight.position.x = 7.5;
-    //////////////////
+
     wall1.position.z = 0.25;
     wall1.position.y = 4.75;
     wall1.position.x = -5.25;
@@ -105,25 +105,25 @@ function initPlane() {
     wall2.position.x = 5.25;
     wall3.position.z = 0.25;
     wall3.position.y = 2.5;
-    //////////////////
+
     sphere.position.z = 0.8;
     sphere.position.y = 6;
     sphere.position.x = -5.5;
-    //////////////////
+
     container.add(wall1);
     container.add(wall2)
     container.add(wall3);
-    /////////////////
+
     container.add(wallRight)
     container.add(wallLeft)
     container.add(wallUp);
     container.add(wallDown)
     container.add(planeX);
     scene.add(sphere)
-    ////////////////////////
+
     collidable = container.children.slice();
     collidable.pop();
-    ////////////////////////
+
     // scene.add(wallHor)
     scene.add(container);
 
